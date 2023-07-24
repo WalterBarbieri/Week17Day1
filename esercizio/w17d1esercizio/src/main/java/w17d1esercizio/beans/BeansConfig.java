@@ -3,11 +3,11 @@ package w17d1esercizio.beans;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import decorator.CottoDecorator;
-import decorator.CrudoDecorator;
-import decorator.RucolaDecorator;
-import decorator.SalsicciaDecorator;
-import decorator.SizeDecorator;
+import w17d1esercizio.decorator.CottoDecorator;
+import w17d1esercizio.decorator.CrudoDecorator;
+import w17d1esercizio.decorator.RucolaDecorator;
+import w17d1esercizio.decorator.SalsicciaDecorator;
+import w17d1esercizio.decorator.SizeDecorator;
 import w17d1esercizio.entities.Bevande;
 import w17d1esercizio.entities.Ingredienti;
 import w17d1esercizio.entities.Oggettistica;

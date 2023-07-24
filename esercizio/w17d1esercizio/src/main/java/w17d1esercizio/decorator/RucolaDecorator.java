@@ -1,4 +1,4 @@
-package decorator;
+package w17d1esercizio.decorator;
 
 import w17d1esercizio.entities.Pizza;
 
