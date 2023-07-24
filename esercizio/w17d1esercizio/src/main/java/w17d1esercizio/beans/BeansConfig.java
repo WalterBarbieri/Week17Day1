@@ -12,6 +12,7 @@ import w17d1esercizio.entities.Ingredienti;
 import w17d1esercizio.entities.Oggettistica;
 import w17d1esercizio.entities.Pizza;
 import w17d1esercizio.entities.PizzaMargherita;
+import w17d1esercizio.entities.SizeDecorator;
 
 @Configuration
 public class BeansConfig {
@@ -60,6 +61,16 @@ public class BeansConfig {
 	@Bean
 	Pizza pizzaSalsicciaERucola() {
 		return new SalsicciaDecorator(new RucolaDecorator(new PizzaMargherita()));
+	}
+
+	@Bean
+	Pizza pizzaMaxi() {
+		return new SizeDecorator(new PizzaMargherita());
+	}
+
+	@Bean
+	Pizza pizzaMaialonaMaxi() {
+		return new SizeDecorator(pizzaMaialona());
 	}
 
 	// INGREDIENTI

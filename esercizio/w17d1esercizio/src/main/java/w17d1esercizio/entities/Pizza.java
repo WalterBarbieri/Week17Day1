@@ -6,7 +6,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public abstract class Pizza extends Commestibile {
-	private Size size;
 
 	public Pizza(String name, double price, double calorie) {
 		super(name, price, calorie);
