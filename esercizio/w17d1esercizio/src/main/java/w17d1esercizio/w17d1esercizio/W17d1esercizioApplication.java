@@ -42,6 +42,7 @@ public class W17d1esercizioApplication {
 		log.info(ctx.getBean("pizzaSalsicciaERucola").toString());
 		log.info(ctx.getBean("pizzaMaxi").toString());
 		log.info(ctx.getBean("pizzaMaialonaMaxi").toString());
+		log.info(ctx.getBean("pizzaCustom").toString());
 		log.info("*****FORMATO MAXI*****");
 		log.info("Pizza Maxi [Calorie = * 1.95, Prezzo = +4.15€]");
 		log.info("*****INGREDIENTI EXTRA*****");

@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 
 import w17d1esercizio.decorator.CottoDecorator;
 import w17d1esercizio.decorator.CrudoDecorator;
+import w17d1esercizio.decorator.IngredienteDecorator;
 import w17d1esercizio.decorator.RucolaDecorator;
 import w17d1esercizio.decorator.SalsicciaDecorator;
 import w17d1esercizio.decorator.SizeDecorator;
@@ -71,6 +72,11 @@ public class BeansConfig {
 	@Bean
 	Pizza pizzaMaialonaMaxi() {
 		return new SizeDecorator(pizzaMaialona());
+	}
+
+	@Bean
+	Pizza pizzaCustom() {
+		return new IngredienteDecorator(new PizzaMargherita(), salsiccia());
 	}
 
 	// INGREDIENTI
