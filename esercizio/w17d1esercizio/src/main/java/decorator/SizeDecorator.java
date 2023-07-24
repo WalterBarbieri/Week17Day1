@@ -1,4 +1,6 @@
-package w17d1esercizio.entities;
+package decorator;
+
+import w17d1esercizio.entities.Pizza;
 
 public class SizeDecorator extends Pizza {
 	public SizeDecorator(Pizza pizza) {

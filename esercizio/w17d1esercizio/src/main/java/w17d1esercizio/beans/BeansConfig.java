@@ -7,12 +7,12 @@ import decorator.CottoDecorator;
 import decorator.CrudoDecorator;
 import decorator.RucolaDecorator;
 import decorator.SalsicciaDecorator;
+import decorator.SizeDecorator;
 import w17d1esercizio.entities.Bevande;
 import w17d1esercizio.entities.Ingredienti;
 import w17d1esercizio.entities.Oggettistica;
 import w17d1esercizio.entities.Pizza;
 import w17d1esercizio.entities.PizzaMargherita;
-import w17d1esercizio.entities.SizeDecorator;
 
 @Configuration
 public class BeansConfig {
