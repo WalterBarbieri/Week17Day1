@@ -1,29 +1,32 @@
-package w17d1esercizio.beans;
+package w17d1esercizio.w17d1esercizio.beans;
 
 import java.time.LocalDateTime;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import w17d1esercizio.decorator.CottoDecorator;
-import w17d1esercizio.decorator.CrudoDecorator;
-import w17d1esercizio.decorator.IngredienteDecorator;
-import w17d1esercizio.decorator.RucolaDecorator;
-import w17d1esercizio.decorator.SalsicciaDecorator;
-import w17d1esercizio.decorator.SizeDecorator;
-import w17d1esercizio.entities.Bevande;
-import w17d1esercizio.entities.Ingredienti;
-import w17d1esercizio.entities.Menu;
-import w17d1esercizio.entities.Oggettistica;
-import w17d1esercizio.entities.Ordine;
-import w17d1esercizio.entities.Pizza;
-import w17d1esercizio.entities.PizzaMargherita;
-import w17d1esercizio.entities.Tavolo;
-import w17d1esercizio.entities.enums.StatoOrdine;
-import w17d1esercizio.entities.enums.StatoTavolo;
+import w17d1esercizio.w17d1esercizio.decorator.CottoDecorator;
+import w17d1esercizio.w17d1esercizio.decorator.CrudoDecorator;
+import w17d1esercizio.w17d1esercizio.decorator.IngredienteDecorator;
+import w17d1esercizio.w17d1esercizio.decorator.RucolaDecorator;
+import w17d1esercizio.w17d1esercizio.decorator.SalsicciaDecorator;
+import w17d1esercizio.w17d1esercizio.decorator.SizeDecorator;
+import w17d1esercizio.w17d1esercizio.entities.Bevande;
+import w17d1esercizio.w17d1esercizio.entities.Ingredienti;
+import w17d1esercizio.w17d1esercizio.entities.Menu;
+import w17d1esercizio.w17d1esercizio.entities.Oggettistica;
+import w17d1esercizio.w17d1esercizio.entities.Ordine;
+import w17d1esercizio.w17d1esercizio.entities.Pizza;
+import w17d1esercizio.w17d1esercizio.entities.PizzaMargherita;
+import w17d1esercizio.w17d1esercizio.entities.Tavolo;
+import w17d1esercizio.w17d1esercizio.entities.enums.StatoOrdine;
+import w17d1esercizio.w17d1esercizio.entities.enums.StatoTavolo;
 
 @Configuration
 public class BeansConfig {
+	@Value("${application.secret.coperto}")
+	private int secretCoperto;
 
 	// ***********************ESERCIZIO 1 DAY 1***********************
 	@Bean
@@ -34,26 +37,89 @@ public class BeansConfig {
 	// ***********************ESERCIZIO 2 DAY 1 & DAY 2***********************
 
 	// ORDINI
+//	@Bean
+//	Ordine ordine1() {
+//		Ordine ordine = new Ordine();
+//		ordine.setNumeroOrdine(1);
+//		ordine.setStatoOrdine(StatoOrdine.SERVITO);
+//		ordine.setNumeroCoperti(6);
+//		ordine.setOrario(LocalDateTime.now());
+//		ordine.setTavolo(tavolo1());
+//		ordine.getPizzaList().add(pizzaCrudoERucola());
+//		ordine.getPizzaList().add(pizzaSalsicciaERucola());
+//		ordine.getPizzaList().add(pizzaMaialona());
+//		ordine.getPizzaList().add(pizzaMargherita());
+//		ordine.getPizzaList().add(pizzaMargherita());
+//		ordine.getPizzaList().add(pizzaCustom());
+//		ordine.getBevandeList().add(birra());
+//		ordine.getBevandeList().add(birra());
+//		ordine.getBevandeList().add(birra());
+//		ordine.getBevandeList().add(acqua());
+//		ordine.getBevandeList().add(coca());
+//		ordine.getBevandeList().add(coca());
+//		ordine.getOggettisticaList().add(mattarelloLoggato());
+//		ordine.setNewSecretCoperto();
+//		ordine.setTotale();
+//		tavolo1().setOrdine(ordine);
+//		return ordine;
+//
+//	}
+
 	@Bean
 	Ordine ordine1() {
-		Ordine ordine1 = new Ordine(1, StatoOrdine.SERVITO, 6, LocalDateTime.now(), tavolo1());
-		ordine1.getPizzaList().add(pizzaCrudoERucola());
-		ordine1.getPizzaList().add(pizzaSalsicciaERucola());
-		ordine1.getPizzaList().add(pizzaMaialona());
-		ordine1.getPizzaList().add(pizzaMargherita());
-		ordine1.getPizzaList().add(pizzaMargherita());
-		ordine1.getPizzaList().add(pizzaCustom());
-		ordine1.getBevandeList().add(birra());
-		ordine1.getBevandeList().add(birra());
-		ordine1.getBevandeList().add(birra());
-		ordine1.getBevandeList().add(birra());
-		ordine1.getBevandeList().add(coca());
-		ordine1.getBevandeList().add(coca());
-		ordine1.getOggettisticaList().add(mattarelloLoggato());
-		ordine1.setSecretCoperto();
-		ordine1.setTotale();
-		tavolo1().setOrdine(ordine1);
-		return ordine1;
+		Ordine ordine = new Ordine(1, StatoOrdine.SERVITO, 6, LocalDateTime.now(), tavolo1());
+		ordine.getPizzaList().add(pizzaCrudoERucola());
+		ordine.getPizzaList().add(pizzaSalsicciaERucola());
+		ordine.getPizzaList().add(pizzaMaialona());
+		ordine.getPizzaList().add(pizzaMargherita());
+		ordine.getPizzaList().add(pizzaMargherita());
+		ordine.getPizzaList().add(pizzaCustom());
+		ordine.getBevandeList().add(birra());
+		ordine.getBevandeList().add(birra());
+		ordine.getBevandeList().add(birra());
+		ordine.getBevandeList().add(acqua());
+		ordine.getBevandeList().add(coca());
+		ordine.getBevandeList().add(coca());
+		ordine.getOggettisticaList().add(mattarelloLoggato());
+		ordine.setNewSecretCoperto();
+		ordine.setTotale();
+		tavolo1().setOrdine(ordine);
+		return ordine;
+
+	}
+
+	@Bean
+	Ordine ordine2() {
+		Ordine ordine = new Ordine(3, StatoOrdine.IN_CORSO, 4, LocalDateTime.now(), tavolo2());
+		ordine.getPizzaList().add(pizzaCrudoERucola());
+		ordine.getPizzaList().add(pizzaSalsicciaERucola());
+		ordine.getPizzaList().add(pizzaMaialona());
+		ordine.getPizzaList().add(pizzaCustom());
+		ordine.getBevandeList().add(vino());
+
+		ordine.getOggettisticaList().add(magliettaDelPizzaiolo());
+		ordine.setNewSecretCoperto();
+		ordine.setTotale();
+		tavolo2().setOrdine(ordine);
+		return ordine;
+
+	}
+
+	@Bean
+	Ordine ordine3() {
+		Ordine ordine = new Ordine(2, StatoOrdine.PRONTO, 10, LocalDateTime.now(), tavolo3());
+		ordine.getPizzaList().add(pizzaMaxi());
+		ordine.getPizzaList().add(pizzaMaialonaMaxi());
+		ordine.getPizzaList().add(pizzaMaialonaMaxi());
+		ordine.getBevandeList().add(birra());
+		for (int i = 0; i < 20; i++) {
+			ordine.getBevandeList().add(birra());
+		}
+		ordine.getOggettisticaList().add(cavatappi());
+		ordine.setNewSecretCoperto();
+		ordine.setTotale();
+		tavolo3().setOrdine(ordine);
+		return ordine;
 
 	}
 

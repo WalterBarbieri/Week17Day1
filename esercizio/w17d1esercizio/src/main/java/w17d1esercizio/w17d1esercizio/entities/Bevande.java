@@ -1,4 +1,4 @@
-package w17d1esercizio.entities;
+package w17d1esercizio.w17d1esercizio.entities;
 
 public class Bevande extends Commestibile {
 

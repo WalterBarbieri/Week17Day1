@@ -2,11 +2,8 @@ package w17d1esercizio.w17d1esercizio;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan(basePackages = { "w17d1esercizio.w17d1esercizio", "w17d1esercizio.beans",
-		"w17d1esercizio.w17d1esercizio.runnable" })
 
 public class W17d1esercizioApplication {
 

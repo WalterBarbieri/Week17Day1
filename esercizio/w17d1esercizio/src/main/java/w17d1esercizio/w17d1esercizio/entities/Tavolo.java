@@ -1,8 +1,8 @@
-package w17d1esercizio.entities;
+package w17d1esercizio.w17d1esercizio.entities;
 
 import lombok.Getter;
 import lombok.Setter;
-import w17d1esercizio.entities.enums.StatoTavolo;
+import w17d1esercizio.w17d1esercizio.entities.enums.StatoTavolo;
 
 @Getter
 @Setter

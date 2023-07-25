@@ -1,18 +1,20 @@
 package w17d1esercizio.w17d1esercizio.runnable;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import lombok.extern.slf4j.Slf4j;
-import w17d1esercizio.beans.BeansConfig;
-import w17d1esercizio.entities.Menu;
+import w17d1esercizio.w17d1esercizio.beans.BeansConfig;
+import w17d1esercizio.w17d1esercizio.entities.Menu;
 
 @Component
 @Slf4j
 @Order(0)
 public class MenuRunnable implements CommandLineRunner {
+	@Autowired
 	private Menu menu;
 	private AnnotationConfigApplicationContext ctx;
 

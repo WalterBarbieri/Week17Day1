@@ -1,6 +1,6 @@
-package w17d1esercizio.decorator;
+package w17d1esercizio.w17d1esercizio.decorator;
 
-import w17d1esercizio.entities.Pizza;
+import w17d1esercizio.w17d1esercizio.entities.Pizza;
 
 public class SalsicciaDecorator extends Pizza {
 	public SalsicciaDecorator(Pizza pizza) {

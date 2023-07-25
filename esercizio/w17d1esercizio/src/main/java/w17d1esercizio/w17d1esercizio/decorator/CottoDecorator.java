@@ -1,6 +1,6 @@
-package w17d1esercizio.decorator;
+package w17d1esercizio.w17d1esercizio.decorator;
 
-import w17d1esercizio.entities.Pizza;
+import w17d1esercizio.w17d1esercizio.entities.Pizza;
 
 public class CottoDecorator extends Pizza {
 	public CottoDecorator(Pizza pizza) {
