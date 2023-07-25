@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 
 import w17d1esercizio.w17d1esercizio.decorator.CottoDecorator;
 import w17d1esercizio.w17d1esercizio.decorator.CrudoDecorator;
@@ -22,6 +23,7 @@ import w17d1esercizio.w17d1esercizio.entities.Tavolo;
 import w17d1esercizio.w17d1esercizio.entities.enums.StatoOrdine;
 import w17d1esercizio.w17d1esercizio.entities.enums.StatoTavolo;
 
+@PropertySource("classpath:application.properties")
 @Configuration
 public class BeansConfig {
 
@@ -34,33 +36,6 @@ public class BeansConfig {
 	// ***********************ESERCIZIO 2 DAY 1 & DAY 2***********************
 
 	// ORDINI
-//	@Bean
-//	Ordine ordine1() {
-//		Ordine ordine = new Ordine();
-//		ordine.setNumeroOrdine(1);
-//		ordine.setStatoOrdine(StatoOrdine.SERVITO);
-//		ordine.setNumeroCoperti(6);
-//		ordine.setOrario(LocalDateTime.now());
-//		ordine.setTavolo(tavolo1());
-//		ordine.getPizzaList().add(pizzaCrudoERucola());
-//		ordine.getPizzaList().add(pizzaSalsicciaERucola());
-//		ordine.getPizzaList().add(pizzaMaialona());
-//		ordine.getPizzaList().add(pizzaMargherita());
-//		ordine.getPizzaList().add(pizzaMargherita());
-//		ordine.getPizzaList().add(pizzaCustom());
-//		ordine.getBevandeList().add(birra());
-//		ordine.getBevandeList().add(birra());
-//		ordine.getBevandeList().add(birra());
-//		ordine.getBevandeList().add(acqua());
-//		ordine.getBevandeList().add(coca());
-//		ordine.getBevandeList().add(coca());
-//		ordine.getOggettisticaList().add(mattarelloLoggato());
-//		ordine.setNewSecretCoperto();
-//		ordine.setTotale();
-//		tavolo1().setOrdine(ordine);
-//		return ordine;
-//
-//	}
 
 	@Bean
 	Ordine ordine1() {
@@ -78,8 +53,6 @@ public class BeansConfig {
 		ordine.getBevandeList().add(coca());
 		ordine.getBevandeList().add(coca());
 		ordine.getOggettisticaList().add(mattarelloLoggato());
-		ordine.setNewSecretCoperto();
-//		ordine.setSecretCoperto(2);
 		ordine.setTotale();
 		tavolo1().setOrdine(ordine);
 		return ordine;
@@ -87,7 +60,7 @@ public class BeansConfig {
 	}
 
 	@Bean
-	Ordine ordine2() {
+	Ordine ordine3() {
 		Ordine ordine = new Ordine(3, StatoOrdine.IN_CORSO, 4, LocalDateTime.now(), tavolo2());
 		ordine.getPizzaList().add(pizzaCrudoERucola());
 		ordine.getPizzaList().add(pizzaSalsicciaERucola());
@@ -96,16 +69,15 @@ public class BeansConfig {
 		ordine.getBevandeList().add(vino());
 
 		ordine.getOggettisticaList().add(magliettaDelPizzaiolo());
-		ordine.setNewSecretCoperto();
-//		ordine.setSecretCoperto(2);
 		ordine.setTotale();
+		ordine.setNota("Vogliono il vino buono");
 		tavolo2().setOrdine(ordine);
 		return ordine;
 
 	}
 
 	@Bean
-	Ordine ordine3() {
+	Ordine ordine2() {
 		Ordine ordine = new Ordine(2, StatoOrdine.PRONTO, 10, LocalDateTime.now(), tavolo3());
 		ordine.getPizzaList().add(pizzaMaxi());
 		ordine.getPizzaList().add(pizzaMaialonaMaxi());
@@ -115,9 +87,8 @@ public class BeansConfig {
 			ordine.getBevandeList().add(birra());
 		}
 		ordine.getOggettisticaList().add(cavatappi());
-		ordine.setNewSecretCoperto();
-//		ordine.setSecretCoperto(2);
 		ordine.setTotale();
+		ordine.setNota("Questi si ubriacano, portare birra");
 		tavolo3().setOrdine(ordine);
 		return ordine;
 

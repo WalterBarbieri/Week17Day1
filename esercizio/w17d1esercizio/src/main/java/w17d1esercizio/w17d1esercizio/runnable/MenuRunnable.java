@@ -25,7 +25,7 @@ public class MenuRunnable implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-
+		log.info("**********MENU**********");
 		log.info("**********PIZZE**********");
 		menu.getPizzaList().forEach(el -> log.info(el.toString()));
 		log.info("");

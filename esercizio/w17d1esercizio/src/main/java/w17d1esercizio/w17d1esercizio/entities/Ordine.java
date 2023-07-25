@@ -5,18 +5,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.stereotype.Component;
 
 import jakarta.annotation.PostConstruct;
 import lombok.Getter;
 import lombok.Setter;
 import w17d1esercizio.w17d1esercizio.entities.enums.StatoOrdine;
 
-@Component
 @Getter
 @Setter
-@PropertySource("classpath:application.properties")
 public class Ordine {
 	private int numeroOrdine;
 	private StatoOrdine statoOrdine;
@@ -30,6 +26,7 @@ public class Ordine {
 	private List<Oggettistica> oggettisticaList = new ArrayList<>();
 	@Value("${application.secret}")
 	private int secretCoperto;
+	private String nota;
 
 	public Ordine(int numeroOrdine, StatoOrdine statoOrdine, int numeroCoperti, LocalDateTime orario, Tavolo tavolo) {
 		this.numeroOrdine = numeroOrdine;
@@ -43,10 +40,6 @@ public class Ordine {
 	public void setNewSecretCoperto() {
 		this.secretCoperto = secretCoperto * numeroCoperti;
 	}
-
-//	public void setSecretCoperto(int number) {
-//		this.secretCoperto = number * numeroCoperti;
-//	}
 
 	public void setTotale() {
 		double total = 0;

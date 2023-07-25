@@ -2,6 +2,7 @@ package w17d1esercizio.w17d1esercizio.runnable;
 
 import java.time.LocalDateTime;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.core.annotation.Order;
@@ -14,13 +15,12 @@ import w17d1esercizio.w17d1esercizio.entities.Ordine;
 @Component
 @Slf4j
 @Order(1)
-
 public class OrdineRunnable implements CommandLineRunner {
-
+	@Autowired
 	private Ordine ordine1;
-
+	@Autowired
 	private Ordine ordine2;
-
+	@Autowired
 	private Ordine ordine3;
 
 	private AnnotationConfigApplicationContext ctx;
@@ -51,6 +51,10 @@ public class OrdineRunnable implements CommandLineRunner {
 		log.info("");
 		log.info("Totale = " + ordine1.getTotale() + "€");
 		log.info("");
+		if (ordine1.getNota() == null) {
+			ordine1.setNota("...");
+		}
+		log.info("Note = " + ordine1.getNota());
 		log.info("");
 
 		log.info("**********ORDINE " + ordine2.getNumeroOrdine() + "**********");
@@ -68,6 +72,10 @@ public class OrdineRunnable implements CommandLineRunner {
 		log.info("");
 		log.info("Totale = " + ordine2.getTotale() + "€");
 		log.info("");
+		if (ordine2.getNota() == null) {
+			ordine2.setNota("...");
+		}
+		log.info("Note = " + ordine2.getNota());
 		log.info("");
 
 		log.info("**********ORDINE " + ordine3.getNumeroOrdine() + "**********");
@@ -85,6 +93,10 @@ public class OrdineRunnable implements CommandLineRunner {
 		log.info("");
 		log.info("Totale = " + ordine3.getTotale() + "€");
 		log.info("");
+		if (ordine3.getNota() == null) {
+			ordine3.setNota("...");
+		}
+		log.info("Note = " + ordine3.getNota());
 		log.info("");
 	}
 }
