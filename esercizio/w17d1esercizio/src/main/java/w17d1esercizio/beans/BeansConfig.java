@@ -24,6 +24,7 @@ import w17d1esercizio.entities.enums.StatoTavolo;
 
 @Configuration
 public class BeansConfig {
+
 	// ***********************ESERCIZIO 1 DAY 1***********************
 	@Bean
 	String sayHello() {
@@ -31,8 +32,8 @@ public class BeansConfig {
 	}
 
 	// ***********************ESERCIZIO 2 DAY 1 & DAY 2***********************
-	// MENU
 
+	// ORDINI
 	@Bean
 	Ordine ordine1() {
 		Ordine ordine1 = new Ordine(1, StatoOrdine.SERVITO, 6, LocalDateTime.now(), tavolo1());
@@ -49,10 +50,14 @@ public class BeansConfig {
 		ordine1.getBevandeList().add(coca());
 		ordine1.getBevandeList().add(coca());
 		ordine1.getOggettisticaList().add(mattarelloLoggato());
+		ordine1.setSecretCoperto();
+		ordine1.setTotale();
+		tavolo1().setOrdine(ordine1);
 		return ordine1;
 
 	}
 
+	// MENU
 	@Bean
 	Menu menu() {
 		Menu menu = new Menu();

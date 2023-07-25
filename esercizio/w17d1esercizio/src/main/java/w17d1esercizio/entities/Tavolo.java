@@ -10,8 +10,8 @@ public class Tavolo {
 	private int numeroTavolo;
 	private int numeroCoperti;
 	private StatoTavolo statoTavolo;
+	private Ordine ordine;
 
-//	private Ordine ordine;
 	public Tavolo(int numeroTavolo, int numeroCoperti, StatoTavolo statoTavolo) {
 		super();
 		this.setNumeroTavolo(numeroTavolo);

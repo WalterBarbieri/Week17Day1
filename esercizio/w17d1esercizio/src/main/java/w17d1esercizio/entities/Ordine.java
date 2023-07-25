@@ -14,7 +14,7 @@ import w17d1esercizio.entities.enums.StatoOrdine;
 
 @Getter
 @Setter
-@PropertySource("classpath:application.secretCoperto")
+@PropertySource("classpath:application.properties")
 public class Ordine {
 	private int numeroOrdine;
 	private StatoOrdine statoOrdine;
@@ -22,7 +22,6 @@ public class Ordine {
 	private LocalDateTime orario;
 	private double totale;
 	private Tavolo tavolo;
-//	private List<Menu> menu;
 	private List<Pizza> pizzaList = new ArrayList<>();
 	private List<Ingredienti> ingredientiList = new ArrayList<>();
 	private List<Bevande> bevandeList = new ArrayList<>();
@@ -43,6 +42,26 @@ public class Ordine {
 	@PostConstruct
 	public void setSecretCoperto() {
 		this.secretCoperto = secretCoperto * numeroCoperti;
+	}
+
+	public void setTotale() {
+		double total = 0;
+		for (Pizza pizza : pizzaList) {
+			total += pizza.getPrice();
+		}
+		for (Ingredienti ingrediente : ingredientiList) {
+			total += ingrediente.getPrice();
+		}
+		for (Bevande bevanda : bevandeList) {
+			total += bevanda.getPrice();
+		}
+		for (Oggettistica oggetto : oggettisticaList) {
+			total += oggetto.getPrice();
+		}
+
+		total += secretCoperto;
+		this.totale = total;
+
 	}
 
 }
