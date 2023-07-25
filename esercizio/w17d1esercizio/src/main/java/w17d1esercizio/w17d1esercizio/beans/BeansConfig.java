@@ -2,7 +2,6 @@ package w17d1esercizio.w17d1esercizio.beans;
 
 import java.time.LocalDateTime;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -25,8 +24,6 @@ import w17d1esercizio.w17d1esercizio.entities.enums.StatoTavolo;
 
 @Configuration
 public class BeansConfig {
-	@Value("${application.secret.coperto}")
-	private int secretCoperto;
 
 	// ***********************ESERCIZIO 1 DAY 1***********************
 	@Bean
@@ -82,6 +79,7 @@ public class BeansConfig {
 		ordine.getBevandeList().add(coca());
 		ordine.getOggettisticaList().add(mattarelloLoggato());
 		ordine.setNewSecretCoperto();
+//		ordine.setSecretCoperto(2);
 		ordine.setTotale();
 		tavolo1().setOrdine(ordine);
 		return ordine;
@@ -99,6 +97,7 @@ public class BeansConfig {
 
 		ordine.getOggettisticaList().add(magliettaDelPizzaiolo());
 		ordine.setNewSecretCoperto();
+//		ordine.setSecretCoperto(2);
 		ordine.setTotale();
 		tavolo2().setOrdine(ordine);
 		return ordine;
@@ -117,6 +116,7 @@ public class BeansConfig {
 		}
 		ordine.getOggettisticaList().add(cavatappi());
 		ordine.setNewSecretCoperto();
+//		ordine.setSecretCoperto(2);
 		ordine.setTotale();
 		tavolo3().setOrdine(ordine);
 		return ordine;

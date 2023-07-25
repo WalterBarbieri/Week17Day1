@@ -28,7 +28,7 @@ public class Ordine {
 	private List<Ingredienti> ingredientiList = new ArrayList<>();
 	private List<Bevande> bevandeList = new ArrayList<>();
 	private List<Oggettistica> oggettisticaList = new ArrayList<>();
-	@Value("${application.secret.coperto}")
+	@Value("${application.secret}")
 	private int secretCoperto;
 
 	public Ordine(int numeroOrdine, StatoOrdine statoOrdine, int numeroCoperti, LocalDateTime orario, Tavolo tavolo) {
