@@ -2,7 +2,6 @@ package w17d1esercizio.w17d1esercizio.runnable;
 
 import java.time.LocalDateTime;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.core.annotation.Order;
@@ -16,11 +15,8 @@ import w17d1esercizio.w17d1esercizio.entities.Ordine;
 @Slf4j
 @Order(1)
 public class OrdineRunnable implements CommandLineRunner {
-	@Autowired
 	private Ordine ordine1;
-	@Autowired
 	private Ordine ordine2;
-	@Autowired
 	private Ordine ordine3;
 
 	private AnnotationConfigApplicationContext ctx;
