@@ -86,6 +86,8 @@ public class BeansConfig {
 		ordine.getPizzaList().add(pizzaMaxi());
 		ordine.getPizzaList().add(pizzaMaialonaMaxi());
 		ordine.getPizzaList().add(pizzaMaialonaMaxi());
+		ordine.getPizzaList().add(pizzaCustom2());
+
 		ordine.getBevandeList().add(birra());
 		for (int i = 0; i < 20; i++) {
 			ordine.getBevandeList().add(birra());
@@ -196,6 +198,13 @@ public class BeansConfig {
 	@Scope("prototype")
 	Pizza pizzaCustom() {
 		return new IngredienteDecorator(new PizzaMargherita(), salsiccia());
+	}
+
+	@Bean
+	@Scope("prototype")
+	Pizza pizzaCustom2() {
+		return new IngredienteDecorator(new IngredienteDecorator(new PizzaMargherita(), salsiccia()),
+				prosciuttoCotto());
 	}
 
 	// INGREDIENTI

@@ -6,8 +6,4 @@ public class Ingredienti extends Commestibile {
 		super(name, price, calorie);
 	}
 
-	@Override
-	public String toString() {
-		return "Ingredienti [Nome = " + getName() + ", Calorie = " + getCalorie() + ", Prezzo = " + getPrice() + "€]";
-	}
 }

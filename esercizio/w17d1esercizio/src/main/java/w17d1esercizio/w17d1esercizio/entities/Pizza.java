@@ -11,9 +11,4 @@ public abstract class Pizza extends Commestibile {
 		super(name, price, calorie);
 	}
 
-	@Override
-	public String toString() {
-		return "Pizza [Nome = " + getName() + ", Calorie = " + getCalorie() + ", Prezzo = " + getPrice() + "€]";
-	}
-
 }
