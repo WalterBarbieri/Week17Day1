@@ -203,8 +203,10 @@ public class BeansConfig {
 	@Bean
 	@Scope("prototype")
 	Pizza pizzaCustom2() {
-		return new IngredienteDecorator(new IngredienteDecorator(new PizzaMargherita(), salsiccia()),
-				prosciuttoCotto());
+		IngredienteDecorator custom2 = new IngredienteDecorator(
+				new IngredienteDecorator(new PizzaMargherita(), salsiccia()), prosciuttoCotto());
+		custom2.setName("Pizza a cui posso dare un nome che voglio");
+		return custom2;
 	}
 
 	// INGREDIENTI
