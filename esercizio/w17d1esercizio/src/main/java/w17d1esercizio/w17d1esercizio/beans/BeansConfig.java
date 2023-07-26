@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.Scope;
 
 import w17d1esercizio.w17d1esercizio.decorator.CottoDecorator;
 import w17d1esercizio.w17d1esercizio.decorator.CrudoDecorator;
@@ -38,6 +39,7 @@ public class BeansConfig {
 	// ORDINI
 
 	@Bean
+	@Scope("prototype")
 	Ordine ordine1() {
 		Ordine ordine = new Ordine(1, StatoOrdine.SERVITO, 6, LocalDateTime.now(), tavolo1());
 		ordine.getPizzaList().add(pizzaCrudoERucola());
@@ -60,6 +62,7 @@ public class BeansConfig {
 	}
 
 	@Bean
+	@Scope("prototype")
 	Ordine ordine3() {
 		Ordine ordine = new Ordine(3, StatoOrdine.IN_CORSO, 4, LocalDateTime.now(), tavolo2());
 		ordine.getPizzaList().add(pizzaCrudoERucola());
@@ -77,6 +80,7 @@ public class BeansConfig {
 	}
 
 	@Bean
+	@Scope("prototype")
 	Ordine ordine2() {
 		Ordine ordine = new Ordine(2, StatoOrdine.PRONTO, 10, LocalDateTime.now(), tavolo3());
 		ordine.getPizzaList().add(pizzaMaxi());
@@ -127,16 +131,19 @@ public class BeansConfig {
 	// PIZZE
 
 	@Bean
+	@Scope("prototype")
 	Pizza pizzaMargherita() {
 		return new PizzaMargherita();
 	}
 
 	@Bean
+	@Scope("prototype")
 	Pizza pizzaCotto() {
 		return new CottoDecorator(new PizzaMargherita());
 	}
 
 	@Bean
+	@Scope("prototype")
 	Pizza pizzaCrudoERucola() {
 		RucolaDecorator crudoERucola = new RucolaDecorator(new CrudoDecorator(new PizzaMargherita()));
 		crudoERucola.setName("Pizza Crudo e Rucola");
@@ -144,6 +151,7 @@ public class BeansConfig {
 	}
 
 	@Bean
+	@Scope("prototype")
 	Pizza pizzaMaialona() {
 		SalsicciaDecorator maialona = new SalsicciaDecorator(
 				new CottoDecorator(new CrudoDecorator(new PizzaMargherita())));
@@ -152,6 +160,7 @@ public class BeansConfig {
 	}
 
 	@Bean
+	@Scope("prototype")
 	Pizza AllIn() {
 		RucolaDecorator allIn = new RucolaDecorator(
 				new SalsicciaDecorator(new CottoDecorator(new CrudoDecorator(new PizzaMargherita()))));
@@ -160,6 +169,7 @@ public class BeansConfig {
 	}
 
 	@Bean
+	@Scope("prototype")
 	Pizza pizzaSalsicciaERucola() {
 		SalsicciaDecorator salsicciaERucola = new SalsicciaDecorator(new RucolaDecorator(new PizzaMargherita()));
 		salsicciaERucola.setName("Pizza Salsiccia e Rucola");
@@ -167,6 +177,7 @@ public class BeansConfig {
 	}
 
 	@Bean
+	@Scope("prototype")
 	Pizza pizzaMaxi() {
 		SizeDecorator pizzaMargheritaMAxi = new SizeDecorator(new PizzaMargherita());
 		pizzaMargheritaMAxi.setName("Maxi Pizza Margherita");
@@ -174,6 +185,7 @@ public class BeansConfig {
 	}
 
 	@Bean
+	@Scope("prototype")
 	Pizza pizzaMaialonaMaxi() {
 		SizeDecorator maialonaMaxi = new SizeDecorator(pizzaMaialona());
 		maialonaMaxi.setName("Maxi Pizza Maialona");
@@ -181,64 +193,76 @@ public class BeansConfig {
 	}
 
 	@Bean
+	@Scope("prototype")
 	Pizza pizzaCustom() {
 		return new IngredienteDecorator(new PizzaMargherita(), salsiccia());
 	}
 
 	// INGREDIENTI
 	@Bean
+	@Scope("prototype")
 	Ingredienti prosciuttoCotto() {
 		return new Ingredienti("Prosciutto Cotto", 1.5, 30);
 	}
 
 	@Bean
+	@Scope("prototype")
 	Ingredienti prosciuttoCrudo() {
 		return new Ingredienti("Prosciutto Crudo", 2, 20);
 	}
 
 	@Bean
+	@Scope("prototype")
 	Ingredienti salsiccia() {
 		return new Ingredienti("Salsiccia", 1.5, 40);
 	}
 
 	@Bean
+	@Scope("prototype")
 	Ingredienti rucola() {
 		return new Ingredienti("Rucola", 0.5, 5);
 	}
 
 	// BEVANDE
 	@Bean
+	@Scope("prototype")
 	Bevande birra() {
 		return new Bevande("Birra", 3.5, 200);
 	}
 
 	@Bean
+	@Scope("prototype")
 	Bevande acqua() {
 		return new Bevande("Acqua", 1, 0);
 	}
 
 	@Bean
+	@Scope("prototype")
 	Bevande coca() {
 		return new Bevande("Coca Cola", 2, 300);
 	}
 
 	@Bean
+	@Scope("prototype")
 	Bevande vino() {
 		return new Bevande("Vino", 16, 700);
 	}
 
 // OGGETTISTICA
 	@Bean
+	@Scope("prototype")
 	Oggettistica cavatappi() {
 		return new Oggettistica("Cavatappi", 5);
 	}
 
 	@Bean
+	@Scope("prototype")
 	Oggettistica magliettaDelPizzaiolo() {
 		return new Oggettistica("Maglietta del Pizzaiolo", 1000);
 	}
 
 	@Bean
+	@Scope("prototype")
 	Oggettistica mattarelloLoggato() {
 		return new Oggettistica("Mattarello (vero legno)", 15);
 	}
